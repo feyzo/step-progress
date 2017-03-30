@@ -25,6 +25,18 @@ const Button = styled.button`
   padding: 0;
   outline: 0;
   cursor: ${(props) => props.disabled ? 'not-allowed' : 'pointer' };
+
+  circle, span {
+    transition: fill, stroke 300ms linear;
+  }
+
+  &:enabled:hover circle {
+    fill: ${(props) => props.complete ? colors.normal : colors.complete };
+  }
+
+  &:enabled:hover span {
+    color: ${colors.complete};
+  }
 `;
 
 const Label = styled.span`

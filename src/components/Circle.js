@@ -1,4 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const CircleSVG = styled.circle`
+  fill: #FFF;
+`;
 
 function Circle({ stroke, strokeWidth = 5, radius = 10 }) {
   const center = radius + (strokeWidth / 2);
@@ -6,13 +11,12 @@ function Circle({ stroke, strokeWidth = 5, radius = 10 }) {
 
   return (
     <svg width={ width } height={ width }>
-      <circle
+      <CircleSVG
         cx={center}
         cy={center}
         r={radius}
         stroke={stroke}
         strokeWidth={strokeWidth}
-        fill="none"
       />
     </svg>
   );
