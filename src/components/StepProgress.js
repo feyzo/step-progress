@@ -21,8 +21,8 @@ function StepProgress(props) {
           <Step
             name={ s.name }
             complete={ s.complete }
-            isLast={ i === stepCount - 1 }
-            isNextComplete={ next && next.complete }
+            showLine={ i === stepCount - 1 }
+            completeLine={ next && next.complete }
             key={ s.name }
           />)
         })

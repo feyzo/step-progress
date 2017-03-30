@@ -34,7 +34,7 @@ const Label = styled.span`
   left: 50%;
   margin-left: -40px;
   font-weight: bold;
-  color: inherit;
+  color: ${(props) => props.color};
 `;
 
 const Line = styled.div`
@@ -44,15 +44,15 @@ const Line = styled.div`
   margin: 0 -2px;
 `;
 
-function Step({ name, complete, isNextComplete, isLast }) {
+function Step({ name, complete, showLine, completeLine }) {
   const stroke = complete ? colors.complete : colors.normal;
-  const lineStroke = isNextComplete ? colors.complete : colors.normal;
+  const lineStroke = completeLine ? colors.complete : colors.normal;
 
-  if(!isLast) {
+  if(!showLine) {
     return (
       <StepContainer>
         <Button href="/" complete={ true }>
-          <Label>{name}</Label>
+          <Label color={stroke}>{name}</Label>
           <Circle stroke={ stroke } />
         </Button>
         <Line stroke={ lineStroke } />
@@ -63,7 +63,7 @@ function Step({ name, complete, isNextComplete, isLast }) {
   return (
       <LastStepContainer>
         <Button href="/" complete={ false }>
-          <Label>{name}</Label>
+          <Label color={stroke}>{name}</Label>
           <Circle stroke={ stroke } />
         </Button>
       </LastStepContainer>
