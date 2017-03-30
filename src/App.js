@@ -1,19 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import StepProgress from './components/StepProgress';
+
+const AppContainer = styled.section`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20%;
+`;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      steps: [{
+        name: 'Design',
+        complete: false
+      }, {
+        name: 'Build',
+        complete: false
+      }, {
+        name: 'Launch',
+        complete: false
+      }]
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <AppContainer>
+        <StepProgress steps={ this.state.steps }/>
+      </AppContainer>
     );
   }
 }
