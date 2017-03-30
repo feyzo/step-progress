@@ -1,0 +1,21 @@
+exports[`test Renders a step with circle 1`] = `
+<div
+  className="fTyqPx">
+  <button
+    className="kdzgLC"
+    color="#3f00d2"
+    disabled={false}
+    onClick={[Function]}
+    type="button">
+    <span
+      className="gTEnhL"
+      color="#3f00d2">
+      test
+    </span>
+    <Circle
+      stroke="#3f00d2" />
+  </button>
+  <div
+    className="hylbHF" />
+</div>
+`;

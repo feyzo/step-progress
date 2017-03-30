@@ -1,0 +1,13 @@
+exports[`test Renders a circle 1`] = `
+<svg
+  height={25}
+  width={25}>
+  <circle
+    className="jYubib"
+    cx={12.5}
+    cy={12.5}
+    r={10}
+    stroke={10}
+    strokeWidth={5} />
+</svg>
+`;

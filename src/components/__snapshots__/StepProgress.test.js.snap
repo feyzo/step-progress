@@ -1,0 +1,26 @@
+exports[`test Renders three steps 1`] = `
+<div
+  className="vZaAr">
+  <Step
+    complete={true}
+    completeLine={true}
+    enabled={undefined}
+    name="step 1"
+    onClick={[Function]}
+    showLine={true} />
+  <Step
+    complete={true}
+    completeLine={false}
+    enabled={undefined}
+    name="step 2"
+    onClick={[Function]}
+    showLine={true} />
+  <Step
+    complete={false}
+    completeLine={undefined}
+    enabled={undefined}
+    name="step 3"
+    onClick={[Function]}
+    showLine={false} />
+</div>
+`;

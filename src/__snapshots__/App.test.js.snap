@@ -1,0 +1,26 @@
+exports[`test Renders a App component 1`] = `
+<section
+  className="dvhzlc">
+  <StepProgress
+    onStepChange={[Function]}
+    steps={
+      Array [
+        Object {
+          "complete": false,
+          "enabled": true,
+          "name": "Design",
+        },
+        Object {
+          "complete": false,
+          "enabled": false,
+          "name": "Build",
+        },
+        Object {
+          "complete": false,
+          "enabled": false,
+          "name": "Launch",
+        },
+      ]
+    } />
+</section>
+`;
