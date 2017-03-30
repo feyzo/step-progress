@@ -54,8 +54,11 @@ const Label = styled.span`
 const Line = styled.div`
   flex: 1;
   height: 5px;
-  background-color: ${(props) => props.stroke};
   margin: 0 -2px;
+  background: linear-gradient(to right, ${colors.complete} 50%, ${colors.normal} 50%);
+  background-size: 200% 100%;
+  background-position: ${(props) => props.complete ? 'left' : 'right' } bottom;
+  transition: all 1s ease;
 `;
 
 function Step(props) {
@@ -68,7 +71,6 @@ function Step(props) {
     enabled
   } = props;
   const stroke = complete ? colors.complete : colors.normal;
-  const lineStroke = completeLine ? colors.complete : colors.normal;
 
   return (
     <StepContainer showLine={showLine}>
@@ -80,7 +82,7 @@ function Step(props) {
         <Label color={stroke}>{name}</Label>
         <Circle stroke={ stroke } />
       </Button>
-      { showLine && (<Line stroke={ lineStroke } />)}
+      { showLine && (<Line complete={ completeLine } />)}
     </StepContainer>
   );
 }
