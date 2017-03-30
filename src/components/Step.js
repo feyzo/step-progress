@@ -8,22 +8,23 @@ const colors = {
 };
 
 const StepContainer = styled.div`
-  flex: 1;
+  flex: ${(props) => props.showLine ? 1 : 0 };
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-top: 30px;
 `;
 
-const LastStepContainer = styled.div`
-  align-items: center;
-  padding-top: 30px;
-`;
-
-const Button = styled.a`
+const Button = styled.button`
   position: relative;
   display: flex;
-  color: ${(props) => props.complete ? colors.complete : colors.normal };
+  color: ${(props) => props.color };
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  cursor: pointer;
 `;
 
 const Label = styled.span`
@@ -34,6 +35,7 @@ const Label = styled.span`
   left: 50%;
   margin-left: -40px;
   font-weight: bold;
+  font-size: 16px;
   color: ${(props) => props.color};
 `;
 
@@ -44,30 +46,19 @@ const Line = styled.div`
   margin: 0 -2px;
 `;
 
-function Step({ name, complete, showLine, completeLine }) {
+function Step({ name, complete, showLine, completeLine, onClick }) {
   const stroke = complete ? colors.complete : colors.normal;
   const lineStroke = completeLine ? colors.complete : colors.normal;
 
-  if(!showLine) {
-    return (
-      <StepContainer>
-        <Button href="/" complete={ true }>
-          <Label color={stroke}>{name}</Label>
-          <Circle stroke={ stroke } />
-        </Button>
-        <Line stroke={ lineStroke } />
-      </StepContainer>
-    );
-  }
-
   return (
-      <LastStepContainer>
-        <Button href="/" complete={ false }>
-          <Label color={stroke}>{name}</Label>
-          <Circle stroke={ stroke } />
-        </Button>
-      </LastStepContainer>
-    );
+    <StepContainer showLine={showLine}>
+      <Button color={stroke} onClick={onClick} type="button">
+        <Label color={stroke}>{name}</Label>
+        <Circle stroke={ stroke } />
+      </Button>
+      { showLine && (<Line stroke={ lineStroke } />)}
+    </StepContainer>
+  );
 }
 
 export default Step;

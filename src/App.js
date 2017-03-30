@@ -14,13 +14,15 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.onStepChange = this.onStepChange.bind(this);
+
     this.state = {
       steps: [{
         name: 'Design',
-        complete: false
+        complete: true
       }, {
         name: 'Build',
-        complete: false
+        complete: true
       }, {
         name: 'Launch',
         complete: false
@@ -28,10 +30,17 @@ class App extends Component {
     };
   }
 
+  onStepChange(step) {
+    console.log(step);
+  }
+
   render() {
     return (
       <AppContainer>
-        <StepProgress steps={ this.state.steps }/>
+        <StepProgress
+          steps={ this.state.steps }
+          onStepChange={ this.onStepChange }
+        />
       </AppContainer>
     );
   }

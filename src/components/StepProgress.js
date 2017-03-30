@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 function StepProgress(props) {
-  const { steps } = props;
+  const { steps, onStepChange } = props;
   const stepCount = steps.length;
 
   return (
@@ -21,9 +21,10 @@ function StepProgress(props) {
           <Step
             name={ s.name }
             complete={ s.complete }
-            showLine={ i === stepCount - 1 }
+            showLine={ i !== stepCount - 1 }
             completeLine={ next && next.complete }
             key={ s.name }
+            onClick={onStepChange.bind(null, s)}
           />)
         })
     }</Container>
