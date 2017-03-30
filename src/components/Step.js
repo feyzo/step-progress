@@ -24,7 +24,7 @@ const Button = styled.button`
   margin: 0;
   padding: 0;
   outline: 0;
-  cursor: pointer;
+  cursor: ${(props) => props.disabled ? 'not-allowed' : 'pointer' };
 `;
 
 const Label = styled.span`
@@ -46,13 +46,25 @@ const Line = styled.div`
   margin: 0 -2px;
 `;
 
-function Step({ name, complete, showLine, completeLine, onClick }) {
+function Step(props) {
+  const {
+    name,
+    complete,
+    showLine,
+    completeLine,
+    onClick,
+    enabled
+  } = props;
   const stroke = complete ? colors.complete : colors.normal;
   const lineStroke = completeLine ? colors.complete : colors.normal;
 
   return (
     <StepContainer showLine={showLine}>
-      <Button color={stroke} onClick={onClick} type="button">
+      <Button
+        color={stroke}
+        onClick={onClick}
+        disabled={!enabled}
+        type="button">
         <Label color={stroke}>{name}</Label>
         <Circle stroke={ stroke } />
       </Button>

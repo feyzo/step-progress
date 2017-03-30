@@ -14,17 +14,20 @@ function StepProgress(props) {
 
   return (
     <Container>{
-      steps.map((s, i) => {
+      steps.map((step, i) => {
+        const { name, complete, enabled } = step;
         const next = steps[i + 1];
+        const showLine = i !== stepCount - 1;
 
         return (
           <Step
-            name={ s.name }
-            complete={ s.complete }
-            showLine={ i !== stepCount - 1 }
+            name={ name }
+            complete={ complete }
+            showLine={ showLine }
+            enabled={ enabled }
             completeLine={ next && next.complete }
-            key={ s.name }
-            onClick={onStepChange.bind(null, s)}
+            key={ name }
+            onClick={onStepChange.bind(null, step)}
           />)
         })
     }</Container>
